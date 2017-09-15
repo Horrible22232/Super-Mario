@@ -73,29 +73,33 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Plattform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediates\$(Plattform)\$(Configuration)\</IntDir>
-    <IncludePath>C:\dev\SDL Games\Super Mario\Super Mario\external libs\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\dev\SDL Games\Super Mario\Super Mario\src;C:\dev\SDL Games\Super Mario\Super Mario\external libs\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\dev\SDL Games\Super Mario\Super Mario\external libs\lib\x86;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Plattform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediates\$(Plattform)\$(Configuration)\</IntDir>
-    <IncludePath>C:\dev\SDL Games\Super Mario\Super Mario\external libs\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\dev\SDL Games\Super Mario\Super Mario\src;C:\dev\SDL Games\Super Mario\Super Mario\external libs\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\dev\SDL Games\Super Mario\Super Mario\external libs\lib\x86;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Plattform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediates\$(Plattform)\$(Configuration)\</IntDir>
-    <IncludePath>C:\dev\SDL Games\Super Mario\Super Mario\external libs\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\dev\SDL Games\Super Mario\Super Mario\src;C:\dev\SDL Games\Super Mario\Super Mario\external libs\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\dev\SDL Games\Super Mario\Super Mario\external libs\lib\x86;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Plattform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediates\$(Plattform)\$(Configuration)\</IntDir>
-    <IncludePath>C:\dev\SDL Games\Super Mario\Super Mario\external libs\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\dev\SDL Games\Super Mario\Super Mario\src;C:\dev\SDL Games\Super Mario\Super Mario\external libs\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\dev\SDL Games\Super Mario\Super Mario\external libs\lib\x86;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -165,10 +169,14 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\utils\Shapes\ShapeRec.h" />
+    <ClInclude Include="src\utils\Texture\LTexture.h" />
     <ClInclude Include="src\stdafx.h" />
     <ClInclude Include="src\targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\utils\Shapes\ShapeRec.cpp" />
+    <ClCompile Include="src\utils\Texture\LTexture.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

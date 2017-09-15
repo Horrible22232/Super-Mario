@@ -24,12 +24,24 @@
     <ClInclude Include="src\stdafx.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="src\utils\Texture\LTexture.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\Shapes\ShapeRec.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\stdafx.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
     <ClCompile Include="src\Super Mario.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\stdafx.cpp">
+    <ClCompile Include="src\utils\Texture\LTexture.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\Shapes\ShapeRec.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
