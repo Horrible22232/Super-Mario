@@ -30,6 +30,9 @@
     <ClInclude Include="src\utils\Shapes\ShapeRec.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="src\utils\window\Window.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\stdafx.cpp">
@@ -42,6 +45,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="src\utils\Shapes\ShapeRec.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\window\Window.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
