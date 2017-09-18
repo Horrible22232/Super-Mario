@@ -2,7 +2,9 @@
 #include "Window.h"
 
 
-Window::Window():m_Window(NULL)
+Window::Window() :
+	m_Window(NULL), m_Renderer(NULL), m_Surface(NULL), m_x(0), m_y(0), m_width(0), m_height(0),
+	m_Running(true), m_WindowID(0)
 {
 }
 
@@ -10,6 +12,9 @@ Window::Window():m_Window(NULL)
 Window::~Window()
 {
 	SDL_DestroyWindow(m_Window);
+	SDL_DestroyRenderer(m_Renderer);
+	m_Window = NULL;
+	m_Renderer = NULL;
 }
 
 bool Window::CreateWindow(std::string title, int x, int y, int width, int height, Uint32 flags)
@@ -26,6 +31,7 @@ bool Window::CreateWindow(std::string title, int x, int y, int width, int height
 		printf("Window Creation ERROR: %s", SDL_GetError());
 		return false;
 	}
+	m_WindowID = SDL_GetWindowID(m_Window);
 	//Create Renderer
 	m_Renderer = SDL_CreateRenderer(m_Window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_TARGETTEXTURE); //Vsync until framerate done!
 	if (m_Renderer == NULL) {
@@ -42,17 +48,63 @@ bool Window::CreateWindow(std::string title, int x, int y, int width, int height
 	return true;
 }
 
-SDL_Window* Window::GetWindow()
+
+void Window::EventManager(SDL_Event& e)
+{
+	if (e.type != SDL_WINDOWEVENT && e.window.windowID != m_WindowID) {
+		return;
+	}
+	switch (e.window.event) {
+	case SDL_WINDOWEVENT_MOVED:
+		m_x = e.window.data1;
+		m_y = e.window.data2;
+		break;
+	case SDL_WINDOWEVENT_RESIZED:
+		m_width = e.window.data1;
+		m_height = e.window.data2;
+		break;
+	case SDL_WINDOWEVENT_CLOSE:
+		m_Running = false;
+		break;
+	}
+}
+
+bool Window::Running()
+{
+	return m_Running;
+}
+
+const int& Window::GetX() const
+{
+	return m_x;
+}
+
+const int& Window::GetY() const
+{
+	return m_y;
+}
+
+const int& Window::GetHeight() const
+{
+	return m_height;
+}
+
+const int& Window::GetWidth() const
+{
+	return m_width;
+}
+
+SDL_Window* Window::GetWindow() const
 {
 	return m_Window;
 }
 
-SDL_Renderer* Window::GetRenderer()
+SDL_Renderer* Window::GetRenderer() const
 {
 	return m_Renderer;
 }
 
-SDL_Surface* Window::GetSurface()
+SDL_Surface* Window::GetSurface() const
 {
 	return m_Surface;
 }

@@ -33,14 +33,18 @@ int main(int argc, char *argv[])
 {
 	init();
 	bool running = true;
+	LTexture test;
+	test.LoadTexture(g_Window.GetRenderer(), "res/test.png");
 	SDL_Event e;
-	while(running){
+	while(g_Window.Running()){
 		SDL_SetRenderDrawColor(g_Window.GetRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
 		SDL_RenderClear(g_Window.GetRenderer());
 		while (SDL_PollEvent(&e)) {
-
+			g_Window.EventManager(e);
 		}
-
+		test.DestTexture((g_Window.GetWidth()-test.GetDestRec().w)/2, (g_Window.GetHeight()-test.GetDestRec().h)/2);
+		test.Render(g_Window.GetRenderer());
+		test.RenderBoarders(g_Window.GetRenderer());
 		SDL_RenderPresent(g_Window.GetRenderer());
 	
 	}
