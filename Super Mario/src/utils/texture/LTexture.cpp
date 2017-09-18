@@ -3,7 +3,8 @@
 #include <SDL_image.h>
 
 
-LTexture::LTexture()
+LTexture::LTexture() :
+	m_Texture(NULL), m_width(0), m_height(0)
 {
 }
 
@@ -13,8 +14,14 @@ LTexture::~LTexture()
 	SDL_DestroyTexture(m_Texture);
 }
 
-bool LTexture::LoadTexture(SDL_Renderer* renderer, std::string& path)
+bool LTexture::LoadTexture(SDL_Renderer* renderer, std::string path)
 {
+	//check valid Renderer
+	if (renderer == NULL) {
+		printf("Bad Renderer passed");
+		return false;
+	}
+
 	//load Image
 	SDL_Surface* texSurface = IMG_Load(path.c_str());
 	if (!texSurface) {
@@ -43,7 +50,7 @@ bool LTexture::LoadTexture(SDL_Renderer* renderer, std::string& path)
 	return true;
 }
 
-bool LTexture::LoadTexture(SDL_Renderer* renderer, std::string& path, Uint8 r, Uint8 g, Uint8 b)
+bool LTexture::LoadTexture(SDL_Renderer* renderer, std::string path, Uint8 r, Uint8 g, Uint8 b)
 {
 	//load Image
 	SDL_Surface* texSurface = IMG_Load(path.c_str());
@@ -84,6 +91,47 @@ bool LTexture::Render(SDL_Renderer* renderer)
 	return true;
 }
 
+bool LTexture::RenderBoarders(SDL_Renderer* renderer)
+{
+	if (SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00) < 0) {
+		printf("SetRenderDrawColor ERROR: %s", SDL_GetError());
+		return false;
+	}
+	if (SDL_RenderDrawRect(renderer, &m_DestTex) < 0) {
+		printf("RenderBoarders ERROR: %s", SDL_GetError());
+		return false;
+	}
+	return true;
+}
+
+bool LTexture::RenderBoarders(SDL_Renderer * renderer, Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha)
+{
+	if (SDL_SetRenderDrawColor(renderer, red, green, blue, alpha) < 0) {
+		printf("SetRenderDrawColor ERROR: %s", SDL_GetError());
+		return false;
+	}
+	if (SDL_RenderDrawRect(renderer, &m_DestTex) < 0) {
+		printf("RenderBoarders ERROR: %s", SDL_GetError());
+		return false;
+	}
+	return true;
+}
+
+bool LTexture::SetAlphaMod(Uint8 alpha)
+{
+	if (SDL_SetTextureBlendMode(m_Texture, SDL_BLENDMODE_BLEND) < 0) {
+		printf("ERROR in setting Blend Mode: %s", SDL_GetError());
+		return false;
+	}
+
+	if (SDL_SetTextureAlphaMod(m_Texture, alpha)) {
+		printf("ERROR in setting Alpha Mode: %s", SDL_GetError());
+		return false;
+	}
+
+	return true;
+}
+
 void LTexture::CutTexture(int x, int y, int width, int height)
 {
 	m_CuttedTex = { x, y, width, height };
@@ -115,17 +163,17 @@ void LTexture::AdjustBoarders()
 	m_DestTex.h = m_DestTex.h;
 }
 
-const SDL_Rect& LTexture::getCuttedRec() const
+const SDL_Rect& LTexture::GetCuttedRec() const
 {
 	return m_CuttedTex;
 }
 
-const SDL_Rect& LTexture::getDestRec() const
+const SDL_Rect& LTexture::GetDestRec() const
 {
 	return m_DestTex;
 }
 
-const SDL_Texture* LTexture::getTexture() const
+const SDL_Texture* LTexture::GetTexture() const
 {
 	return m_Texture;
 }

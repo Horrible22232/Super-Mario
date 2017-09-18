@@ -12,18 +12,21 @@ public:
 	~LTexture();
 
 public:
-	bool LoadTexture(SDL_Renderer* renderer, std::string& path);
-	bool LoadTexture(SDL_Renderer* renderer, std::string& path, Uint8 r, Uint8 g, Uint8 b);
+	bool LoadTexture(SDL_Renderer* renderer, std::string path);
+	bool LoadTexture(SDL_Renderer* renderer, std::string path, Uint8 r, Uint8 g, Uint8 b);
 	bool Render(SDL_Renderer* renderer);
+	bool RenderBoarders(SDL_Renderer* renderer);
+	bool RenderBoarders(SDL_Renderer* renderer, Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha);
+	bool SetAlphaMod(Uint8 alpha);
 	void CutTexture(int x, int y, int width, int height);
 	void CutTexture(ShapeRec& Rect);
 	void DestTexture(int x, int y);
 	void DestTexture(int x, int y, int width, int height);
 	void DestTexture(ShapeRec& Rect);
 	void AdjustBoarders();
-	const SDL_Rect& getCuttedRec() const;
-	const SDL_Rect& getDestRec() const;
-	const SDL_Texture* getTexture() const;
+	const SDL_Rect& GetCuttedRec() const;
+	const SDL_Rect& GetDestRec() const;
+	const SDL_Texture* GetTexture() const;
 
 
 private:
