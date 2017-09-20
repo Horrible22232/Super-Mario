@@ -18,9 +18,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\targetver.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="src\stdafx.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -33,12 +30,15 @@
     <ClInclude Include="src\utils\window\Window.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="src\targetver.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\filemanager\FileManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\stdafx.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Super Mario.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="src\utils\Texture\LTexture.cpp">
@@ -48,6 +48,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="src\utils\window\Window.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Super Mario.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\filemanager\FileManager.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

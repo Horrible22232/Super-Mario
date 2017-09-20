@@ -173,6 +173,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\utils\filemanager\FileManager.h" />
     <ClInclude Include="src\utils\Shapes\ShapeRec.h" />
     <ClInclude Include="src\utils\Texture\LTexture.h" />
     <ClInclude Include="src\stdafx.h" />
@@ -180,6 +181,7 @@
     <ClInclude Include="src\utils\window\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\utils\filemanager\FileManager.cpp" />
     <ClCompile Include="src\utils\Shapes\ShapeRec.cpp" />
     <ClCompile Include="src\utils\Texture\LTexture.cpp" />
     <ClCompile Include="src\stdafx.cpp">
