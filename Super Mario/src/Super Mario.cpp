@@ -11,7 +11,7 @@
 Window g_Window;
 
 bool init();
-inline void run();
+void run();
 void close();
 inline void input(SDL_Event& e);
 inline void update();
@@ -32,7 +32,7 @@ bool init()
 	}
 }
 
-inline void run() {
+void run() {
 	SDL_Event e;
 
 	while (g_Window.Running()) {
