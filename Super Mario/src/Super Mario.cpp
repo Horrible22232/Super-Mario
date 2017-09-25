@@ -3,19 +3,23 @@
 #include <SDL_image.h>
 #include <iostream>
 #include <SDL.h>
-#include <utils\window\Window.h>
-#include <utils\texture\LTexture.h>
+#include <game\window\Window.h>
+#include <game\texture\LTexture.h>
 #include <utils\filemanager\FileManager.h>
 #include <string>
 
-Window g_Window;
-
+//Pre Loaded functions
 bool init();
 void run();
 void close();
 inline void input(SDL_Event& e);
 inline void update();
 inline void render();
+
+//global Variables
+Window g_Window;
+
+
 
 bool init()
 {
@@ -30,6 +34,7 @@ bool init()
 	if (!g_Window.CreateWindow("Super Mario", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 500, 500, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE)) {
 		return false;
 	}
+	return true;
 }
 
 void run() {
