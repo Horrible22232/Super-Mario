@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __GameState_H
-#define __GameState_H
+#ifndef __CGameState_H
+#define __CGameState_H
 
 class CGameState
 {
