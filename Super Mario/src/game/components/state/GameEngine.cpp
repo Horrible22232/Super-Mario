@@ -1,10 +1,9 @@
-#include "stdafx.h"
 #include "GameEngine.h"
+#include "stdafx.h"
 
 
 
-
-CGameEngine::CGameEngine(Window* window, SDL_Renderer* Renderer) :window(window), Renderer(Renderer)
+CGameEngine::CGameEngine(Window* window, SDL_Renderer* Renderer): window(window), Renderer(Renderer)
 {
 
 }

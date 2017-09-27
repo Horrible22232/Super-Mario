@@ -4,6 +4,8 @@
 #include <game\components\state\CGameState.h>
 #include <vector>
 class CGameState;
+class Window;
+
 
 class CGameEngine
 {
