@@ -82,3 +82,13 @@ void CGameEngine::Draw()
 	// let the state draw the screen
 	states.back()->Draw(this);
 }
+
+bool CGameEngine::Running()
+{
+	return m_running;
+}
+
+void CGameEngine::Quit()
+{
+	m_running = false;
+}

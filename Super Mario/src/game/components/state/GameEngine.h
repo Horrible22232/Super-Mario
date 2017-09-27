@@ -1,10 +1,9 @@
 #pragma once
-#ifndef __GameEngine_H
-#define __GameEngine_H
-
+#include "stdafx.h"
 #include <game\components\window\Window.h>
 #include <game\components\state\CGameState.h>
 #include <vector>
+class CGameState;
 
 class CGameEngine
 {
@@ -23,8 +22,8 @@ public:
 	void Update();
 	void Draw();
 
-	bool Running() { return m_running; }
-	void Quit() { m_running = false; }
+	bool Running();
+	void Quit();
 
 public:
 	Window* window;
@@ -38,4 +37,3 @@ private:
 	bool m_running;
 };
 
-#endif 

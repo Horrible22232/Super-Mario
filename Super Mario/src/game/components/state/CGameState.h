@@ -1,6 +1,8 @@
 #pragma once
-#ifndef __CGameState_H
-#define __CGameState_H
+#include "GameEngine.h"
+#include "stdafx.h"
+class CGameEngine;
+
 
 class CGameState
 {
@@ -15,10 +17,7 @@ public:
 	virtual void Update(CGameEngine* game) = 0;
 	virtual void Draw(CGameEngine* game) = 0;
 
-	void ChangeState(CGameEngine* game, CGameState* state) {
-		game->ChangeState(this);
-	}
+	void ChangeState(CGameEngine* game, CGameState* state);
 
-	protected: CGameState() { }
+protected: CGameState() { }
 };
-#endif 

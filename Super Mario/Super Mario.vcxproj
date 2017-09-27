@@ -196,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\game\components\state\GameEngine.cpp" />
+    <ClCompile Include="src\game\components\state\CGameState.cpp" />
     <ClCompile Include="src\utils\filemanager\FileManager.cpp" />
     <ClCompile Include="src\utils\Shapes\ShapeRec.cpp" />
     <ClCompile Include="src\game\components\texture\LTexture.cpp" />
