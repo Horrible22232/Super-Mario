@@ -1,4 +1,7 @@
 #pragma once
+#ifndef __GameEngine_H
+#define __GameEngine_H
+
 #include <game\components\window\Window.h>
 #include <game\components\state\CGameState.h>
 #include <vector>
@@ -35,3 +38,4 @@ private:
 	bool m_running;
 };
 
+#endif 

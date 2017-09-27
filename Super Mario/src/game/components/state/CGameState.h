@@ -1,5 +1,6 @@
 #pragma once
-
+#ifndef __GameState_H
+#define __GameState_H
 
 class CGameState
 {
@@ -20,4 +21,4 @@ public:
 
 	protected: CGameState() { }
 };
-
+#endif 
