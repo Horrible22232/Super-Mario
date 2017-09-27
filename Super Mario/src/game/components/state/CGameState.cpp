@@ -1,6 +1,7 @@
+#include "stdafx.h"
 #include "CGameState.h"
 
-void CGameState::ChangeState(CGameEngine * game, CGameState * state)
+void CGameState::ChangeState(CGameEngine* game, CGameState * state)
 {
-		game->ChangeState(this);
+	game->ChangeState(state);
 }

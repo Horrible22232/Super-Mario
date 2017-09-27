@@ -1,11 +1,9 @@
 #pragma once
-#include "stdafx.h"
 #include <game\components\window\Window.h>
 #include <game\components\state\CGameState.h>
 #include <vector>
-class CGameState;
-class Window;
 
+class CGameState;
 
 class CGameEngine
 {
