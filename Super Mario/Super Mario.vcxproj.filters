@@ -30,13 +30,16 @@
     <ClInclude Include="src\utils\filemanager\FileManager.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\window\Window.h">
+    <ClInclude Include="src\game\components\state\CGameState.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\texture\LTexture.h">
+    <ClInclude Include="src\game\components\texture\LTexture.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\state\CGameState.h">
+    <ClInclude Include="src\game\components\window\Window.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\components\state\GameEngine.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,13 +56,13 @@
     <ClCompile Include="src\utils\filemanager\FileManager.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\window\Window.cpp">
+    <ClCompile Include="src\game\components\texture\LTexture.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\texture\LTexture.cpp">
+    <ClCompile Include="src\game\components\window\Window.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\state\CGameState.cpp">
+    <ClCompile Include="src\game\components\state\GameEngine.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

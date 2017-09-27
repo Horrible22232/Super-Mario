@@ -3,8 +3,8 @@
 #include <SDL_image.h>
 #include <iostream>
 #include <SDL.h>
-#include <game\window\Window.h>
-#include <game\texture\LTexture.h>
+#include <game\components\window\Window.h>
+#include <game\components\texture\LTexture.h>
 #include <utils\filemanager\FileManager.h>
 #include <string>
 
