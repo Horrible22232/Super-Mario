@@ -1,6 +1,6 @@
 #pragma once
-#include <game\components\state\CGameState.h>
 #include <game\components\window\Window.h>
+#include <game\components\state\CGameState.h>
 #include <vector>
 
 class CGameEngine
