@@ -194,6 +194,7 @@
     <ClInclude Include="src\stdafx.h" />
     <ClInclude Include="src\targetver.h" />
     <ClInclude Include="src\game\components\window\Window.h" />
+    <ClInclude Include="src\game\components\timer\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\game\components\state\menue\Menue.cpp" />
@@ -210,6 +211,10 @@
     </ClCompile>
     <ClCompile Include="src\Super Mario.cpp" />
     <ClCompile Include="src\game\components\window\Window.cpp" />
+    <ClCompile Include="src\game\components\timer\Timer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

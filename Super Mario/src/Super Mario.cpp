@@ -9,6 +9,7 @@
 #include <game\components\state\GameEngine.h>
 #include <string>
 #include <game\components\state\menue\Menue.h>
+#include <game\components\timer\Timer.h>
 
 //Pre Loaded functions
 bool init();
@@ -45,7 +46,7 @@ void run()
 	CGameEngine Game(&g_Window, g_Window.GetRenderer());
 	Game.Init();
 	Game.ChangeState(Menue::Instance());
-	SDL_Event e;
+	SDL_Event e;	
 
 	while (g_Window.Running()) {
 		input(e, Game);
