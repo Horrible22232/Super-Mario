@@ -10,6 +10,7 @@ class CGameEngine
 public:
 	CGameEngine(Window* Window, SDL_Renderer* Renderer);
 	CGameEngine::~CGameEngine();
+
 public:
 	void Init();
 	void Cleanup();

@@ -14,6 +14,7 @@ Menue::~Menue()
 
 void Menue::Init()
 {
+
 }
 
 void Menue::Cleanup()
@@ -28,16 +29,18 @@ void Menue::Resume()
 {
 }
 
-void Menue::HandleEvents(CGameEngine * game, SDL_Event & e)
+void Menue::HandleEvents(CGameEngine* game, SDL_Event& e)
 {
 }
 
 void Menue::Update(CGameEngine* game)
 {
+
 }
 
 void Menue::Render(CGameEngine* game)
 {
+
 }
 
 Menue* Menue::Instance()

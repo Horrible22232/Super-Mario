@@ -21,13 +21,7 @@
     <ClInclude Include="src\stdafx.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\utils\Shapes\ShapeRec.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="src\targetver.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="src\utils\filemanager\FileManager.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="src\game\components\texture\LTexture.h">
@@ -45,18 +39,18 @@
     <ClInclude Include="src\game\components\state\menue\Menue.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="src\utils\filemanager\FileManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\Shapes\ShapeRec.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\stdafx.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\utils\Shapes\ShapeRec.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="src\Super Mario.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="src\utils\filemanager\FileManager.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="src\game\components\texture\LTexture.cpp">
@@ -72,6 +66,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="src\game\components\state\menue\Menue.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\filemanager\FileManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\Shapes\ShapeRec.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

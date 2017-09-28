@@ -42,9 +42,9 @@ bool init()
 
 void run() {
 	CGameEngine Game(&g_Window, g_Window.GetRenderer());
-	SDL_Event e;
+	Game.Init();
 	Game.ChangeState(Menue::Instance());
-
+	SDL_Event e;
 
 	while (g_Window.Running()) {
 		input(e, Game);
@@ -87,7 +87,10 @@ inline void render(CGameEngine& Game) {
 
 int main(int argc, char *argv[])
 {
-	init();
+	if (!init()) {
+		printf("Error Init!\n");
+		exit(EXIT_FAILURE);
+	}
 	run();
     return 0;
 }

@@ -18,11 +18,13 @@ public:
 	void Update(CGameEngine* game) override;
 	void Render(CGameEngine* game) override;
 
+private:
+	
+
 public: 
 	static Menue* Instance();
 
 private:
 	static Menue m_Menue;
-
 };
 
