@@ -86,16 +86,10 @@ inline void render(CGameEngine& Game)
 }
 
 
-void test() {
-	FileManager Writer;
-	std::string text = "HELLO my first text \n Did this work? when yeah it'S awesome";
-	Writer.WriteFile("res/test.txt", text);
-}
 
 
 int main(int argc, char *argv[])
 {
-	test();
 	if (!init()) {
 		printf("Error Init!\n");
 		exit(EXIT_FAILURE);
