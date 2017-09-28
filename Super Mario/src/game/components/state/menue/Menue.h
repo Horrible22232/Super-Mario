@@ -5,18 +5,18 @@
 class Menue: public CGameState
 {
 protected:
-public:
 	Menue();
 	~Menue();
-	void Init();
-	void Cleanup();
+public:
+	void Init() override;
+	void Cleanup() override;
 
-	void Pause();
-	void Resume();
+	void Pause() override;
+	void Resume() override;
 
-	void HandleEvents(CGameEngine* game);
-	void Update(CGameEngine* game);
-	void Render(CGameEngine* game);
+	void HandleEvents(CGameEngine* game, SDL_Event& e) override;
+	void Update(CGameEngine* game) override;
+	void Render(CGameEngine* game) override;
 
 public: 
 	static Menue* Instance();

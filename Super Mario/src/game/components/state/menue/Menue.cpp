@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Menue.h"
 
-
 Menue Menue::m_Menue;
 
 Menue::Menue()
@@ -29,15 +28,15 @@ void Menue::Resume()
 {
 }
 
-void Menue::HandleEvents(CGameEngine * game)
+void Menue::HandleEvents(CGameEngine * game, SDL_Event & e)
 {
 }
 
-void Menue::Update(CGameEngine * game)
+void Menue::Update(CGameEngine* game)
 {
 }
 
-void Menue::Render(CGameEngine * game)
+void Menue::Render(CGameEngine* game)
 {
 }
 
