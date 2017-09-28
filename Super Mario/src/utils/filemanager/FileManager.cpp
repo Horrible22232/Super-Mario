@@ -36,7 +36,19 @@ std::string FileManager::ReadFile(std::string path)
 	return res;
 }
 
-bool FileManager::WriteFile(std::string path, std::string text)
+bool FileManager::WriteFile(std::string path, std::string& text)
 {
-	return false;
+	SDL_RWops *rw = SDL_RWFromFile(path.c_str(), "w");
+	if (rw == NULL) {
+		printf("ERROR by Creating a file Writer: %s\n", SDL_GetError());
+		return false;
+	}
+	if (SDL_RWwrite(rw, text.c_str(), 1, text.length()) != text.length()) {
+		printf("ERROR Couldn't write the String: %s, ERROR: %s\n",text.c_str(), SDL_GetError());
+		return false;
+	}
+
+	SDL_RWclose(rw);
+
+	return true;
 }

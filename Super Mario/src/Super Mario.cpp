@@ -40,7 +40,8 @@ bool init()
 	return true;
 }
 
-void run() {
+void run()
+{
 	CGameEngine Game(&g_Window, g_Window.GetRenderer());
 	Game.Init();
 	Game.ChangeState(Menue::Instance());
@@ -61,7 +62,8 @@ void close(CGameEngine& Game)
 	SDL_Quit();
 }
 
-inline void input(SDL_Event& e, CGameEngine& Game) {
+inline void input(SDL_Event& e, CGameEngine& Game)
+{
 	while (SDL_PollEvent(&e)) {
 		g_Window.EventManager(e);
 		Game.HandleEvents(e);
@@ -69,11 +71,13 @@ inline void input(SDL_Event& e, CGameEngine& Game) {
 	}
 }
 
-inline void update(CGameEngine& Game) {
+inline void update(CGameEngine& Game)
+{
 	Game.Update();
 }
 
-inline void render(CGameEngine& Game) {
+inline void render(CGameEngine& Game) 
+{
 	SDL_SetRenderDrawColor(g_Window.GetRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
 	SDL_RenderClear(g_Window.GetRenderer());
 	Game.Render();
@@ -82,11 +86,16 @@ inline void render(CGameEngine& Game) {
 }
 
 
-
+void test() {
+	FileManager Writer;
+	std::string text = "HELLO my first text \n Did this work? when yeah it'S awesome";
+	Writer.WriteFile("res/test.txt", text);
+}
 
 
 int main(int argc, char *argv[])
 {
+	test();
 	if (!init()) {
 		printf("Error Init!\n");
 		exit(EXIT_FAILURE);

@@ -8,6 +8,6 @@ public:
 	~FileManager();
 public:
 	std::string ReadFile(std::string path);
-	bool WriteFile(std::string path, std::string text);
+	bool WriteFile(std::string path, std::string& text);
 };
 
