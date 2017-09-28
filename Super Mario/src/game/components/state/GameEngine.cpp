@@ -64,10 +64,10 @@ void CGameEngine::PopState()
 	}
 }
 
-void CGameEngine::HandleEvents()
+void CGameEngine::HandleEvents(SDL_Event& e)
 {
 	// let the state handle events
-	states.back()->HandleEvents(this);
+	states.back()->HandleEvents(this, e);
 }
 
 void CGameEngine::Update()
@@ -76,10 +76,10 @@ void CGameEngine::Update()
 	states.back()->Update(this);
 }
 
-void CGameEngine::Draw()
+void CGameEngine::Render()
 {
 	// let the state draw the screen
-	states.back()->Draw(this);
+	states.back()->Render(this);
 }
 
 bool CGameEngine::Running()

@@ -18,9 +18,9 @@ public:
 	void PushState(CGameState* state);
 	void PopState();
 
-	void HandleEvents();
+	void HandleEvents(SDL_Event& e);
 	void Update();
-	void Draw();
+	void Render();
 
 	bool Running();
 	void Quit();

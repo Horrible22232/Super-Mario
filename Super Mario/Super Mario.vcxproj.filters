@@ -42,6 +42,9 @@
     <ClInclude Include="src\game\components\state\CGameState.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="src\game\components\state\menue\Menue.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\stdafx.cpp">
@@ -66,6 +69,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="src\game\components\state\CGameState.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\components\state\menue\Menue.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

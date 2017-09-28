@@ -185,6 +185,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\game\components\state\menue\Menue.h" />
     <ClInclude Include="src\game\components\state\GameEngine.h" />
     <ClInclude Include="src\game\components\state\CGameState.h" />
     <ClInclude Include="src\utils\filemanager\FileManager.h" />
@@ -195,6 +196,7 @@
     <ClInclude Include="src\game\components\window\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\game\components\state\menue\Menue.cpp" />
     <ClCompile Include="src\game\components\state\GameEngine.cpp" />
     <ClCompile Include="src\game\components\state\CGameState.cpp" />
     <ClCompile Include="src\utils\filemanager\FileManager.cpp" />

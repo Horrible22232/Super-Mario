@@ -13,9 +13,9 @@ public:
 	virtual void Pause() = 0;
 	virtual void Resume() = 0;
 
-	virtual void HandleEvents(CGameEngine* game) = 0;
+	virtual void HandleEvents(CGameEngine* game, SDL_Event& e) = 0;
 	virtual void Update(CGameEngine* game) = 0;
-	virtual void Draw(CGameEngine* game) = 0;
+	virtual void Render(CGameEngine* game) = 0;
 
 	void ChangeState(CGameEngine* game, CGameState* state);
 

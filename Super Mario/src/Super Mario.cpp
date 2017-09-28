@@ -6,15 +6,17 @@
 #include <game\components\window\Window.h>
 #include <game\components\texture\LTexture.h>
 #include <utils\filemanager\FileManager.h>
+#include <game\components\state\GameEngine.h>
 #include <string>
+#include <game\components\state\menue\Menue.h>
 
 //Pre Loaded functions
 bool init();
 void run();
-void close();
-inline void input(SDL_Event& e);
-inline void update();
-inline void render();
+void close(CGameEngine& Game);
+inline void input(SDL_Event& e, CGameEngine& Game);
+inline void update(CGameEngine& Game);
+inline void render(CGameEngine& Game);
 
 //global Variables
 Window g_Window;
@@ -30,6 +32,7 @@ bool init()
 	if (!(IMG_Init(IMG_INIT_JPG| IMG_INIT_PNG)&(IMG_INIT_JPG | IMG_INIT_PNG))) {
 		printf("IMG_Init: Failed to init required jpg and png support!\n");
 		printf("IMG_Init: %s\n", IMG_GetError());
+		return false;
 	}
 	if (!g_Window.CreateWindow("Super Mario", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 500, 500, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE)) {
 		return false;
@@ -38,35 +41,42 @@ bool init()
 }
 
 void run() {
+	CGameEngine Game(&g_Window, g_Window.GetRenderer());
 	SDL_Event e;
+	Game.ChangeState(Menue::Instance());
+
 
 	while (g_Window.Running()) {
-		input(e);
-		update();
-		render();
+		input(e, Game);
+		update(Game);
+		render(Game);
 	}
+
+	close(Game);
 }
 
-void close()
+void close(CGameEngine& Game)
 {
+	Game.Cleanup();
 	SDL_Quit();
 }
 
-inline void input(SDL_Event& e) {
+inline void input(SDL_Event& e, CGameEngine& Game) {
 	while (SDL_PollEvent(&e)) {
 		g_Window.EventManager(e);
+		Game.HandleEvents(e);
 
 	}
 }
 
-inline void update() {
-
+inline void update(CGameEngine& Game) {
+	Game.Update();
 }
 
-inline void render() {
+inline void render(CGameEngine& Game) {
 	SDL_SetRenderDrawColor(g_Window.GetRenderer(), 0xFF, 0xFF, 0xFF, 0xFF);
 	SDL_RenderClear(g_Window.GetRenderer());
-
+	Game.Render();
 
 	SDL_RenderPresent(g_Window.GetRenderer());
 }
@@ -79,7 +89,6 @@ int main(int argc, char *argv[])
 {
 	init();
 	run();
-	close();
     return 0;
 }
 
