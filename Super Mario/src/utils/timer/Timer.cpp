@@ -40,7 +40,7 @@ void Timer::Stop()
 	m_Paused = false;
 }
 
-Uint32& Timer::GetTime()
+Uint32 Timer::GetTime()
 {
 	Uint32 finalTime = 0;
 	if (isPaused()) {

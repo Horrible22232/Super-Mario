@@ -45,7 +45,7 @@
     <ClInclude Include="src\utils\Shapes\ShapeRec.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\components\timer\Timer.h">
+    <ClInclude Include="src\utils\timer\Timer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -77,7 +77,7 @@
     <ClCompile Include="src\utils\Shapes\ShapeRec.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\components\timer\Timer.cpp">
+    <ClCompile Include="src\utils\timer\Timer.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

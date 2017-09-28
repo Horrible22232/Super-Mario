@@ -7,7 +7,10 @@ public:
 	FileManager();
 	~FileManager();
 public:
-	std::string ReadFile(std::string path);
+	char* ReadFile(std::string path);
 	bool WriteFile(std::string path, std::string& text);
+
+private:
+	char* res;
 };
 

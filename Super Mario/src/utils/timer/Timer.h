@@ -12,7 +12,7 @@ public:
 	void Stop();
 	void Pause();
 	void Continue();
-	Uint32& GetTime();
+	Uint32 GetTime();
 	bool isStopped();
 	bool isRunning();
 	bool isPaused();
