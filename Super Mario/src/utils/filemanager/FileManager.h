@@ -3,14 +3,15 @@
 
 class FileManager
 {
-public:
+protected:
 	FileManager();
 	~FileManager();
 public:
-	char* ReadFile(std::string path);
+	std::string ReadFile(std::string path);
 	bool WriteFile(std::string path, std::string& text);
+	static FileManager* Instance();
 
 private:
-	char* res;
+	static FileManager m_FileManager;
 };
 

@@ -2,23 +2,24 @@
 #include "FileManager.h"
 #include <SDL.h>
 
-FileManager::FileManager(): res(NULL)
+static FileManager m_FileManager;
+
+FileManager::FileManager()
 {
 }
-
 
 FileManager::~FileManager()
 {
-	free(res);
+
 }
 
-char* FileManager::ReadFile(std::string path)
+std::string FileManager::ReadFile(std::string path)
 {
 	SDL_RWops *rw = SDL_RWFromFile(path.c_str(), "rb");
 	if (rw == NULL) return NULL;
 
 	Sint64 res_size = SDL_RWsize(rw);
-	res = (char*)malloc(res_size + 1);
+	char* res = (char*)malloc(res_size + 1);
 
 	Sint64 nb_read_total = 0, nb_read = 1;
 	char* buf = res;
@@ -32,10 +33,10 @@ char* FileManager::ReadFile(std::string path)
 		free(res);
 		return NULL;
 	}
-
 	res[nb_read_total] = '\0';
+	std::string result = res;
 	
-	return res;
+	return result;
 }
 
 bool FileManager::WriteFile(std::string path, std::string& text)
@@ -54,3 +55,9 @@ bool FileManager::WriteFile(std::string path, std::string& text)
 
 	return true;
 }
+
+FileManager* FileManager::Instance()
+{
+	return &m_FileManager;
+}
+
