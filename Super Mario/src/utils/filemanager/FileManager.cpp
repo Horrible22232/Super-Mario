@@ -2,7 +2,7 @@
 #include "FileManager.h"
 #include <SDL.h>
 
-static FileManager m_FileManager;
+FileManager FileManager::m_FileManager;
 
 FileManager::FileManager()
 {

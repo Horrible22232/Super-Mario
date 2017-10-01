@@ -24,9 +24,6 @@
     <ClInclude Include="src\targetver.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\components\texture\LTexture.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="src\game\components\window\Window.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -48,15 +45,15 @@
     <ClInclude Include="src\utils\timer\Timer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="src\game\components\graphics\texture\LTexture.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\stdafx.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="src\Super Mario.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="src\game\components\texture\LTexture.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="src\game\components\window\Window.cpp">
@@ -78,6 +75,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="src\utils\timer\Timer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\components\graphics\texture\LTexture.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

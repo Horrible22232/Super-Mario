@@ -4,7 +4,6 @@
 #include <iostream>
 #include <SDL.h>
 #include <game\components\window\Window.h>
-#include <game\components\texture\LTexture.h>
 #include <utils\filemanager\FileManager.h>
 #include <game\components\state\GameEngine.h>
 #include <string>
