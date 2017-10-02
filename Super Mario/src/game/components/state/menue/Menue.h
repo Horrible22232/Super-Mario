@@ -1,6 +1,7 @@
 #pragma once
 #include <game\components\state\CGameState.h>
 #include <game\components\state\GameEngine.h>
+#include <game\components\graphics\text\Text.h>
 
 class Menue: public CGameState
 {
@@ -8,7 +9,7 @@ protected:
 	Menue();
 	~Menue();
 public:
-	void Init() override;
+	void Init(CGameEngine* game) override;
 	void Cleanup() override;
 
 	void Pause() override;
@@ -19,7 +20,7 @@ public:
 	void Render(CGameEngine* game) override;
 
 private:
-	
+	Text m_text;
 
 public: 
 	static Menue* Instance();

@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "GameEngine.h"
-
-
+#include <SDL.h>
+#include <game\components\camera\Camera.h>
+#include <game\components\graphics\text\Text.h>
 
 CGameEngine::CGameEngine(Window* window, SDL_Renderer* Renderer):window(window), Renderer(Renderer)
 {
@@ -13,8 +14,9 @@ CGameEngine::~CGameEngine()
 }
 
 
-void CGameEngine::Init()
+void CGameEngine::Init(Window& window)
 {
+	Camera::Instance()->init(new int(window.GetWidth()), new int(window.GetHeight()));
 }
 
 void CGameEngine::Cleanup()
@@ -35,7 +37,7 @@ void CGameEngine::ChangeState(CGameState* state)
 
 	// store and init the new state
 	states.push_back(state);
-	states.back()->Init();
+	states.back()->Init(this);
 }
 
 void CGameEngine::PushState(CGameState* state)
@@ -47,7 +49,7 @@ void CGameEngine::PushState(CGameState* state)
 
 	// store and init the new state
 	states.push_back(state);
-	states.back()->Init();
+	states.back()->Init(this);
 }
 
 void CGameEngine::PopState()

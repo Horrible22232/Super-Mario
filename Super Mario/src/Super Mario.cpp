@@ -8,6 +8,8 @@
 #include <game\components\state\GameEngine.h>
 #include <string>
 #include <game\components\state\menue\Menue.h>
+#include "SDL_ttf.h"
+#include <game\components\graphics\text\Text.h>
 
 
 //Pre Loaded functions
@@ -37,13 +39,18 @@ bool init()
 	if (!g_Window.CreateWindow("Super Mario", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 500, 500, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE)) {
 		return false;
 	}
+	if (TTF_Init() == -1) {
+		printf("TTF_Init: %s\n", TTF_GetError());
+		return false;
+	}
+
 	return true;
 }
 
 void run()
 {
 	CGameEngine Game(&g_Window, g_Window.GetRenderer());
-	Game.Init();
+	Game.Init(g_Window);
 	Game.ChangeState(Menue::Instance());
 	SDL_Event e;	
 
@@ -59,6 +66,8 @@ void run()
 void close(CGameEngine& Game)
 {
 	Game.Cleanup();
+	Text::free();
+	TTF_Quit();
 	SDL_Quit();
 }
 

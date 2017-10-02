@@ -16,6 +16,11 @@ LTexture::~LTexture()
 
 bool LTexture::LoadTexture(SDL_Renderer* renderer, std::string& path)
 {
+	//check if texture free
+	if (m_Texture != NULL) {
+		SDL_DestroyTexture(m_Texture);
+	}
+
 	//check valid Renderer
 	if (renderer == NULL) {
 		printf("Bad Renderer passed");

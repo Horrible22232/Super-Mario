@@ -5,7 +5,7 @@ Camera* Camera::m_Instance;
 
 Camera::Camera()
 {
-	m_Instance = new Camera();
+	
 }
 
 
@@ -16,6 +16,9 @@ Camera::~Camera()
 
 Camera* Camera::Instance()
 {
+	if (m_Instance == NULL) {
+		m_Instance = new Camera();
+	}
 	return m_Instance;
 }
 

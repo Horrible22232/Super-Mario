@@ -12,7 +12,7 @@ public:
 	CGameEngine::~CGameEngine();
 
 public:
-	void Init();
+	void Init(Window& window);
 	void Cleanup();
 
 	void ChangeState(CGameState* state);
