@@ -14,7 +14,7 @@ LTexture::~LTexture()
 	SDL_DestroyTexture(m_Texture);
 }
 
-bool LTexture::LoadTexture(SDL_Renderer* renderer, std::string path)
+bool LTexture::LoadTexture(SDL_Renderer* renderer, std::string& path)
 {
 	//check valid Renderer
 	if (renderer == NULL) {
@@ -50,7 +50,7 @@ bool LTexture::LoadTexture(SDL_Renderer* renderer, std::string path)
 	return true;
 }
 
-bool LTexture::LoadTexture(SDL_Renderer* renderer, std::string path, Uint8 r, Uint8 g, Uint8 b)
+bool LTexture::LoadTexture(SDL_Renderer* renderer, std::string& path, Uint8 r, Uint8 g, Uint8 b)
 {
 	//load Image
 	SDL_Surface* texSurface = IMG_Load(path.c_str());

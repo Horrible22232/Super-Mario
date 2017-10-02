@@ -48,6 +48,15 @@
     <ClInclude Include="src\game\components\graphics\texture\LTexture.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="src\game\components\graphics\assets\Asset.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\components\graphics\button\Button.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\components\graphics\assets\button\ButtonAsset.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\stdafx.cpp">
@@ -80,8 +89,14 @@
     <ClCompile Include="src\game\components\graphics\texture\LTexture.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <ClCompile Include="src\game\components\graphics\assets\Asset.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\components\graphics\button\Button.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\components\graphics\assets\button\ButtonAsset.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

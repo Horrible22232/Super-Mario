@@ -12,8 +12,8 @@ public:
 	~LTexture();
 
 public:
-	bool LoadTexture(SDL_Renderer* renderer, std::string path);
-	bool LoadTexture(SDL_Renderer* renderer, std::string path, Uint8 r, Uint8 g, Uint8 b);
+	bool LoadTexture(SDL_Renderer* renderer, std::string& path);
+	bool LoadTexture(SDL_Renderer* renderer, std::string& path, Uint8 r, Uint8 g, Uint8 b);
 	bool Render(SDL_Renderer* renderer);
 	bool RenderBoarders(SDL_Renderer* renderer);
 	bool RenderBoarders(SDL_Renderer* renderer, Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha);

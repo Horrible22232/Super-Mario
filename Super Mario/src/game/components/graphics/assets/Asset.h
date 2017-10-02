@@ -12,9 +12,10 @@ public:
 	virtual bool SetStart(int start);
 	virtual bool SetCurrent(int current);
 	virtual bool SetEnd(int end);
-	virtual int& getSize();
-	virtual ShapeRec& getShape(int shape);
-	virtual ShapeRec& nextShape();
+	virtual int& GetSize();
+	virtual ShapeRec& GetShape(int shape);
+	virtual ShapeRec& NextShape();
+	virtual bool Render(SDL_Renderer* renderer);
 private:
 	int m_Start;
 	int m_Current;

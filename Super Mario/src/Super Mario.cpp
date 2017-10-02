@@ -62,6 +62,7 @@ void close(CGameEngine& Game)
 	SDL_Quit();
 }
 
+
 inline void input(SDL_Event& e, CGameEngine& Game)
 {
 	while (SDL_PollEvent(&e)) {
