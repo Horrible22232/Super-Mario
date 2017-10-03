@@ -1,8 +1,9 @@
 #pragma once
+#include <vector>
 #include <game\components\window\Window.h>
 #include <game\components\state\CGameState.h>
-#include <vector>
-
+#include <game\components\input\mouse\MouseManager.h>
+#include <game\components\input\Input.h>
 class CGameState;
 
 class CGameEngine
@@ -22,6 +23,7 @@ public:
 	void HandleEvents(SDL_Event& e);
 	void Update();
 	void Render();
+	void Reset();
 
 	bool Running();
 	void Quit();
@@ -29,6 +31,7 @@ public:
 public:
 	Window* window;
 	SDL_Renderer* Renderer;
+	CInput* Input;
 
 
 private:

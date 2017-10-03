@@ -3,13 +3,14 @@
 #include <SDL_image.h>
 #include <iostream>
 #include <SDL.h>
+#include <string>
+#include "SDL_ttf.h"
 #include <game\components\window\Window.h>
 #include <utils\filemanager\FileManager.h>
 #include <game\components\state\GameEngine.h>
-#include <string>
 #include <game\components\state\menue\Menue.h>
-#include "SDL_ttf.h"
 #include <game\components\graphics\text\Text.h>
+#include <game\components\input\Input.h>
 
 
 //Pre Loaded functions
@@ -19,6 +20,7 @@ void close(CGameEngine& Game);
 inline void input(SDL_Event& e, CGameEngine& Game);
 inline void update(CGameEngine& Game);
 inline void render(CGameEngine& Game);
+inline void reset(CGameEngine& Game);
 
 //global Variables
 Window g_Window;
@@ -58,10 +60,18 @@ void run()
 		input(e, Game);
 		update(Game);
 		render(Game);
+		reset(Game);
 	}
 
 	close(Game);
 }
+
+
+void reset(CGameEngine& Game)
+{
+	Game.Reset();
+}
+
 
 void close(CGameEngine& Game)
 {

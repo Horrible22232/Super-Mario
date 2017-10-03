@@ -16,6 +16,7 @@ public:
 	virtual void HandleEvents(CGameEngine* game, SDL_Event& e) = 0;
 	virtual void Update(CGameEngine* game) = 0;
 	virtual void Render(CGameEngine* game) = 0;
+	virtual void Reset(CGameEngine* game) = 0;
 
 	void ChangeState(CGameEngine* game, CGameState* state);
 

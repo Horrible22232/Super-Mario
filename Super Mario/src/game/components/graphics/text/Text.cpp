@@ -25,7 +25,7 @@ bool Text::Init(std::string path)
 		return false;
 	}
 	//set standart color Black
-	SetColor(BLACK);
+	SetColor(COLOR_BLACK);
 	return true;
 }
 
@@ -100,25 +100,25 @@ void Text::DestText(ShapeRec& Rect)
 void Text::SetColor(Color color) //first color THEN setText!
 {
 	switch (color) {
-	case RED:
+	case COLOR_RED:
 		m_Color = { 0xFF, 0x00, 0x00 };
 		break;
-	case ORANGE:
+	case COLOR_ORANGE:
 		m_Color = { 0xFF, 0xA5, 0x00 };
 		break;
-	case YELLOW:
+	case COLOR_YELLOW:
 		m_Color = { 0xFF, 0xFF, 0x00 };
 		break;
-	case GREEN:
+	case COLOR_GREEN:
 		m_Color = { 0x00, 0x8B, 0x00 };
 		break;
-	case BLUE:
+	case COLOR_BLUE:
 		m_Color = { 0x00, 0x00, 0xFF };
 		break;
-	case VIOLET:
+	case COLOR_VIOLET:
 		m_Color = { 0xEE, 0x82, 0xEE };
 		break;
-	case BLACK:
+	case COLOR_BLACK:
 		m_Color = { 0x00, 0x00, 0x00};
 		break;
 	default:

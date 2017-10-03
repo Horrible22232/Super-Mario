@@ -18,6 +18,7 @@ public:
 	void HandleEvents(CGameEngine* game, SDL_Event& e) override;
 	void Update(CGameEngine* game) override;
 	void Render(CGameEngine* game) override;
+	void Reset(CGameEngine* game) override;
 
 private:
 	Text m_text;

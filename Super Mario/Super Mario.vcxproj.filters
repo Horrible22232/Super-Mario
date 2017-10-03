@@ -63,6 +63,12 @@
     <ClInclude Include="src\game\components\graphics\text\Text.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="src\game\components\input\mouse\MouseManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\components\input\Input.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\stdafx.cpp">
@@ -110,5 +116,14 @@
     <ClCompile Include="src\game\components\graphics\text\Text.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="src\game\components\input\mouse\MouseManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\components\input\Input.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

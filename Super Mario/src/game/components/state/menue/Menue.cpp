@@ -16,7 +16,7 @@ void Menue::Init(CGameEngine* game)
 {
 	m_text.Init("res/font/CONFN.TTF");
 	m_text.DestText(50, 100, 400, 100);
-	m_text.SetColor(ORANGE);
+	m_text.SetColor(COLOR_ORANGE);
 	m_text.SetText(game->Renderer, "YES IT WORKS");
 }
 
@@ -39,11 +39,16 @@ void Menue::HandleEvents(CGameEngine* game, SDL_Event& e)
 void Menue::Update(CGameEngine* game)
 {
 
+	
 }
 
 void Menue::Render(CGameEngine* game)
 {
 	m_text.Render(game->Renderer);
+}
+
+void Menue::Reset(CGameEngine * game)
+{
 }
 
 Menue* Menue::Instance()

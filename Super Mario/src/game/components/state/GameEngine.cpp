@@ -4,19 +4,24 @@
 #include <game\components\camera\Camera.h>
 #include <game\components\graphics\text\Text.h>
 
-CGameEngine::CGameEngine(Window* window, SDL_Renderer* Renderer):window(window), Renderer(Renderer)
+CGameEngine::CGameEngine(Window* window, SDL_Renderer* Renderer): window(window), Renderer(Renderer)
 {
 
 }
 
 CGameEngine::~CGameEngine()
 {
+
 }
 
 
 void CGameEngine::Init(Window& window)
 {
 	Camera::Instance()->init(new int(window.GetWidth()), new int(window.GetHeight()));
+	Input = new CInput();
+	Input->Init();
+	//SDL_CaptureMouse(SDL_TRUE);
+
 }
 
 void CGameEngine::Cleanup()
@@ -25,6 +30,7 @@ void CGameEngine::Cleanup()
 		states.back()->Cleanup();
 		states.pop_back();
 	}
+	delete Input;
 }
 
 void CGameEngine::ChangeState(CGameState* state)
@@ -69,6 +75,7 @@ void CGameEngine::PopState()
 void CGameEngine::HandleEvents(SDL_Event& e)
 {
 	// let the state handle events
+	Input->EventHandler(e);
 	states.back()->HandleEvents(this, e);
 }
 
@@ -82,6 +89,12 @@ void CGameEngine::Render()
 {
 	// let the state draw the screen
 	states.back()->Render(this);
+}
+
+void CGameEngine::Reset()
+{
+	Input->GetMouseManager().Reset();
+	states.back()->Reset(this);
 }
 
 bool CGameEngine::Running()
