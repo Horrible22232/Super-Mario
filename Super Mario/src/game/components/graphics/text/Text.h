@@ -16,7 +16,7 @@ public:
 	bool Render(SDL_Renderer* renderer);
 	bool RenderBoarders(SDL_Renderer* renderer);
 	bool RenderBoarders(SDL_Renderer* renderer, Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha);
-	bool SetText(SDL_Renderer* renderer, std::string text);
+	bool SetText(SDL_Renderer* renderer, std::string& text);
 	void DestText(int x, int y);
 	void DestText(int x, int y, int width, int height);
 	void DestText(ShapeRec& Rect);
@@ -29,5 +29,7 @@ private:
 	SDL_Rect m_DestText;
 	SDL_Texture* m_Texture;
 	SDL_Color m_Color;
+	std::string m_text;
+	SDL_Renderer* m_Renderer;
 };
 

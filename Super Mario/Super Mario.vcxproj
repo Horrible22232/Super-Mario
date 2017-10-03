@@ -202,6 +202,7 @@
     <ClInclude Include="src\game\components\window\Window.h" />
     <ClInclude Include="src\utils\timer\Timer.h" />
     <ClInclude Include="src\game\components\graphics\text\Text.h" />
+    <ClInclude Include="src\game\components\graphics\button\start\startButton.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\game\components\input\Input.cpp" />
@@ -226,9 +227,7 @@
     <ClCompile Include="src\game\components\window\Window.cpp" />
     <ClCompile Include="src\utils\timer\Timer.cpp" />
     <ClCompile Include="src\game\components\graphics\text\Text.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <ClCompile Include="src\game\components\graphics\button\start\startButton.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

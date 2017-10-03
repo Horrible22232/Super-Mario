@@ -118,22 +118,22 @@ bool MouseManager::RightButtonHold()
 	return m_rightButtonHold;
 }
 
-int* MouseManager::GetXRelative()
+int& MouseManager::GetXRelative()
 {
-	return &m_xRel;
+	return m_xRel;
 }
 
-int* MouseManager::getYRelative()
+int& MouseManager::getYRelative()
 {
-	return &m_yRel;
+	return m_yRel;
 }
 
-int* MouseManager::GetX()
+int& MouseManager::GetX()
 {
-	return &m_X;
+	return m_X;
 }
 
-int* MouseManager::GetY()
+int& MouseManager::GetY()
 {
-	return &m_Y;
+	return m_Y;
 }

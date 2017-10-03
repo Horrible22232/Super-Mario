@@ -64,25 +64,33 @@ bool Text::RenderBoarders(SDL_Renderer * renderer, Uint8 red, Uint8 green, Uint8
 	return true;
 }
 
-bool Text::SetText(SDL_Renderer* renderer, std::string text)
+bool Text::SetText(SDL_Renderer* renderer, std::string& text)
 {
+	if (m_Font == NULL) {
+		printf("Init first");
+	}
 	//check valid Renderer
 	if (renderer == NULL) {
 		printf("Bad Renderer passed");
 		return false;
 	}
+	
+	//else point to Renderer
+	m_Renderer = renderer;
 
+	//copy text 
+	m_text = text;
 	//load Text
-	SDL_Surface* texSurface = TTF_RenderText_Solid(m_Font, text.c_str(), m_Color);
+	SDL_Surface* texSurface = TTF_RenderText_Solid(m_Font, m_text.c_str(), m_Color);
 	if (!texSurface) {
-		printf("Text_Load ERROR: %s at string: %s \n", TTF_GetError(), text.c_str());
+		printf("Text_Load ERROR: %s at string: %s \n", TTF_GetError(), m_text.c_str());
 		return false;
 	}
 
 	//Create Text + set width + height
 	m_Texture = SDL_CreateTextureFromSurface(renderer, texSurface);
 	if (!m_Texture) {
-		printf("Texture Loading ERROR: %s at string : %s \n", SDL_GetError(), text.c_str());
+		printf("Texture Loading ERROR: %s at string : %s \n", SDL_GetError(), m_text.c_str());
 	}
 	SDL_FreeSurface(texSurface);
 }
@@ -125,6 +133,7 @@ void Text::SetColor(Color color) //first color THEN setText!
 		m_Color = { 0x00, 0x00, 0x00 };
 		break;
 	}
+	SetText(m_Renderer, m_text);
 }
 
 void Text::DestText(int x, int y)

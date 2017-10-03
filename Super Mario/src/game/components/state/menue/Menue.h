@@ -2,6 +2,7 @@
 #include <game\components\state\CGameState.h>
 #include <game\components\state\GameEngine.h>
 #include <game\components\graphics\text\Text.h>
+#include <game\components\graphics\button\start\startButton.h>
 
 class Menue: public CGameState
 {
@@ -22,6 +23,7 @@ public:
 
 private:
 	Text m_text;
+	startButton m_bttnstart;
 
 public: 
 	static Menue* Instance();

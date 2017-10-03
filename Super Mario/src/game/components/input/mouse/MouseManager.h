@@ -17,10 +17,10 @@ public:
 	bool RightDoubleClick();
 	bool RightReleased();
 	bool RightButtonHold();
-	int* GetX();
-	int* GetY();
-	int* GetXRelative();
-	int* getYRelative();
+	int& GetX();
+	int& GetY();
+	int& GetXRelative();
+	int& getYRelative();
 
 private:
 	int m_X;

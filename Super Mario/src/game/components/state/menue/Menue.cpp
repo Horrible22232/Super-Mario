@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Menue.h"
 
+
 Menue Menue::m_Menue;
 
 Menue::Menue()
@@ -15,9 +16,8 @@ Menue::~Menue()
 void Menue::Init(CGameEngine* game)
 {
 	m_text.Init("res/font/CONFN.TTF");
-	m_text.DestText(50, 100, 400, 100);
-	m_text.SetColor(COLOR_ORANGE);
-	m_text.SetText(game->Renderer, "YES IT WORKS");
+	m_bttnstart.init(game->Renderer, "res/images/buttons/buttonyllw.png", "start", 100, 100, 200, 100);
+	
 }
 
 void Menue::Cleanup()
@@ -34,6 +34,7 @@ void Menue::Resume()
 
 void Menue::HandleEvents(CGameEngine* game, SDL_Event& e)
 {
+	m_bttnstart.EventHandler(game->Input->GetMouseManager());
 }
 
 void Menue::Update(CGameEngine* game)
@@ -44,7 +45,7 @@ void Menue::Update(CGameEngine* game)
 
 void Menue::Render(CGameEngine* game)
 {
-	m_text.Render(game->Renderer);
+	m_bttnstart.Render(game->Renderer);
 }
 
 void Menue::Reset(CGameEngine * game)
