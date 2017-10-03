@@ -14,7 +14,6 @@ MouseManager::~MouseManager()
 
 void MouseManager::EventHandler(SDL_Event& e)
 {
-	Reset(); // NEED TO ADD
 	SDL_GetMouseState(&m_X, &m_Y);
 	m_xRel = e.motion.xrel;
 	m_yRel = e.motion.yrel;
