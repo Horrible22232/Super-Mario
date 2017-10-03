@@ -71,7 +71,7 @@ bool Text::SetText(SDL_Renderer* renderer, std::string& text)
 	}
 	//check valid Renderer
 	if (renderer == NULL) {
-		printf("Bad Renderer passed");
+		printf("Bad Renderer passed at text %s\n", text);
 		return false;
 	}
 	
@@ -133,7 +133,9 @@ void Text::SetColor(Color color) //first color THEN setText!
 		m_Color = { 0x00, 0x00, 0x00 };
 		break;
 	}
-	SetText(m_Renderer, m_text);
+	if(m_Renderer != NULL){
+		SetText(m_Renderer, m_text);
+	}
 }
 
 void Text::DestText(int x, int y)

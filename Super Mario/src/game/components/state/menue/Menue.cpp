@@ -45,6 +45,7 @@ void Menue::Update(CGameEngine* game)
 
 void Menue::Render(CGameEngine* game)
 {
+	if (game->Renderer == NULL) printf("FCK IT ");
 	m_bttnstart.Render(game->Renderer);
 }
 

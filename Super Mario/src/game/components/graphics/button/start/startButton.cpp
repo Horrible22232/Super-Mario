@@ -24,9 +24,11 @@ void startButton::Hovered()
 
 void startButton::Released()
 {
+	
+	printf("PRESSED YOLO \n");
 }
 
 void startButton::Pressed()
 {
-	printf("PRESSED YOLO \n");
+	
 }
