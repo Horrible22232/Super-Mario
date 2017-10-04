@@ -11,6 +11,7 @@
 #include <game\components\state\menue\Menue.h>
 #include <game\components\graphics\text\Text.h>
 #include <game\components\input\Input.h>
+#include <utils\timer\Timer.h>
 
 
 //Pre Loaded functions
@@ -55,12 +56,22 @@ void run()
 	Game.Init(g_Window);
 	Game.ChangeState(Menue::Instance());
 	SDL_Event e;	
+	double lagg = 0;
+	double Max_Time_Per_Tick = 1000 / 60;
+	Timer Clock;
 
 	while (g_Window.Running()) {
+		lagg += Clock.GetTime();
+		Clock.Stop();
+		Clock.Start();
+		while(lagg > Max_Time_Per_Tick){
 		input(e, Game);
 		update(Game);
+		lagg -= Clock.GetTime();
+		}
 		render(Game);
 		reset(Game);
+		
 	}
 
 	close(Game);
