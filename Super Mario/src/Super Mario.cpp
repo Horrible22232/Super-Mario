@@ -60,12 +60,12 @@ void run()
 	Timer FPSClock; 
 	double Max_Time_Per_Tick = 1000 / 30;
 	double fps = 0;
+	double lag;
+	double oldLag = 0;
+	bool once = true;
 	Clock.Start();
 	FPSClock.Start();
-	int lag;
-	int oldLag = 0;
-	bool once = true;
-	while (g_Window.Running()) {
+	while (g_Window.Running()) { // DONT LOOK AT THAT MESS
 		if (FPSClock.GetTime() >= 1000) {
 			std::cout << fps / (double)FPSClock.GetTime() * 1000 << std::endl;
 			FPSClock.Reset();

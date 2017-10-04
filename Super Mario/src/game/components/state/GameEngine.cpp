@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <game\components\camera\Camera.h>
 #include <game\components\graphics\text\Text.h>
+#include <game\components\graphics\button\manager\ButtonManager.h>
 
 CGameEngine::CGameEngine(Window* window, SDL_Renderer* Renderer): window(window), Renderer(Renderer)
 {
@@ -76,6 +77,7 @@ void CGameEngine::HandleEvents(SDL_Event& e)
 {
 	// let the state handle events
 	Input->EventHandler(e);
+	ButtonManager::Instance()->EventHandler(Input->GetMouseManager());
 	states.back()->HandleEvents(this, e);
 }
 
@@ -89,6 +91,7 @@ void CGameEngine::Render()
 {
 	// let the state draw the screen
 	states.back()->Render(this);
+	ButtonManager::Instance()->Render(Renderer);
 }
 
 void CGameEngine::Reset()

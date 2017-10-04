@@ -37,7 +37,6 @@ void Menue::Resume()
 
 void Menue::HandleEvents(CGameEngine* game, SDL_Event& e)
 {
-	m_bttnstart.EventHandler(game->Input->GetMouseManager());
 }
 
 void Menue::Update(CGameEngine* game)
@@ -48,8 +47,6 @@ void Menue::Update(CGameEngine* game)
 
 void Menue::Render(CGameEngine* game)
 {
-	if (game->Renderer == NULL) printf("FCK IT ");
-	m_bttnstart.Render(game->Renderer);
 	test.Render(game->Renderer);
 }
 

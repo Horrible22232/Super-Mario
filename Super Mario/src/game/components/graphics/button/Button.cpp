@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Button.h"
+#include <game\components\graphics\button\manager\ButtonManager.h>
 
 
 Button::Button()
@@ -9,11 +10,13 @@ Button::Button()
 
 Button::~Button()
 {
+	ButtonManager::Instance()->remove(this);
 	delete m_Button;
 }
 
 bool Button::init(SDL_Renderer* renderer, std::string path, std::string text, int x, int y, int width, int height)
 {
+	ButtonManager::Instance()->add(this);
 	m_Button = new LTexture();
 	if (!m_Button->LoadTexture(renderer, path)) {
 		printf("Error in Loading texture for Button! \n");
