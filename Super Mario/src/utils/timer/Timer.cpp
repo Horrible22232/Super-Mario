@@ -40,6 +40,12 @@ void Timer::Stop()
 	m_Paused = false;
 }
 
+void Timer::Reset()
+{
+	Stop();
+	Start();
+}
+
 Uint32 Timer::GetTime()
 {
 	Uint32 finalTime = 0;

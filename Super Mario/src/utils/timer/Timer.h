@@ -10,6 +10,7 @@ public:
 public:
 	void Start();
 	void Stop();
+	void Reset();
 	void Pause();
 	void Continue();
 	Uint32 GetTime();

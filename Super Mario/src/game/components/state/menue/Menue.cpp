@@ -18,7 +18,9 @@ void Menue::Init(CGameEngine* game)
 {
 	m_text.Init("res/font/CONFN.TTF");
 	m_bttnstart.init(game->Renderer, "res/images/buttons/buttonyllw.png", "start", 100, 100, 200, 100);
-	
+	test.LoadTexture(game->Renderer, std::string("res/images/buttons/buttonyllw.png"));
+	m_X = 0;
+	test.DestTexture(m_X, 300, 20, 20);
 }
 
 void Menue::Cleanup()
@@ -40,7 +42,7 @@ void Menue::HandleEvents(CGameEngine* game, SDL_Event& e)
 
 void Menue::Update(CGameEngine* game)
 {
-
+	test.DestTexture(++m_X, 300, 20, 20);
 	
 }
 
@@ -48,6 +50,7 @@ void Menue::Render(CGameEngine* game)
 {
 	if (game->Renderer == NULL) printf("FCK IT ");
 	m_bttnstart.Render(game->Renderer);
+	test.Render(game->Renderer);
 }
 
 void Menue::Reset(CGameEngine * game)

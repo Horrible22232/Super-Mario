@@ -56,11 +56,38 @@ void run()
 	Game.Init(g_Window);
 	Game.ChangeState(Menue::Instance());
 	SDL_Event e;	
-
+	Timer Clock; // Sync Gameloop
+	Timer FPSClock; 
+	double Max_Time_Per_Tick = 1000 / 30;
+	double fps = 0;
+	Clock.Start();
+	FPSClock.Start();
+	int lag;
+	int oldLag = 0;
+	bool once = true;
 	while (g_Window.Running()) {
-		input(e, Game);
-		update(Game);
+		if (FPSClock.GetTime() >= 1000) {
+			std::cout << fps / (double)FPSClock.GetTime() * 1000 << std::endl;
+			FPSClock.Reset();
+			fps = 0;
+		}
+		lag = Clock.GetTime() + oldLag;
+		while (lag >= Max_Time_Per_Tick) { //Synchronize Update_Tick
+			if (once) { // Remove Max_Time_Per_Tick once
+				once = false;
+				lag -= Max_Time_Per_Tick;
+			}
+			Clock.Reset(); //Update the game atleast at Max_Time_Per_Tick
+			input(e, Game);
+			update(Game);
+			lag -= Clock.GetTime();
+			oldLag = lag;
+			render(Game); //Render
+			fps++;	//Count fps
+			once = lag < Max_Time_Per_Tick ? true : false;
+		}
 		render(Game);
+		fps++;
 		reset(Game);
 		
 	}

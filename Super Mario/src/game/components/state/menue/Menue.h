@@ -26,7 +26,8 @@ public:
 private:
 	Text m_text;
 	startButton m_bttnstart;
-
+	int m_X;
+	LTexture test;
 public: 
 	static Menue* Instance();
 
