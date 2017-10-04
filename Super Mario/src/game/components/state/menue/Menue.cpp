@@ -4,6 +4,7 @@
 
 Menue Menue::m_Menue;
 
+
 Menue::Menue()
 {
 }
@@ -56,4 +57,30 @@ void Menue::Reset(CGameEngine * game)
 Menue* Menue::Instance()
 {
 	return &m_Menue;
+}
+
+//_________________________________________________________ Button start
+void startButton::NotTouched()
+{
+	std::string test = "fuck it";
+	m_gfxText.SetText(Renderer, test);
+	m_gfxText.SetColor(COLOR_BLACK);
+}
+
+void startButton::Hovered()
+{
+	std::string test = "fuck it2";
+	m_gfxText.SetText(Renderer, test);
+	m_gfxText.SetColor(COLOR_BLUE);
+}
+
+void startButton::Released()
+{
+	printf("RELEASED YOLO \n"); 
+
+}
+
+void startButton::Pressed()
+{
+	printf("PRESSED YOLO \n");
 }

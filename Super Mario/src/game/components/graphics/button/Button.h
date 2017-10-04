@@ -5,6 +5,8 @@
 #include <game\components\graphics\texture\LTexture.h>
 #include <game\components\graphics\text\Text.h>
 
+#define CButton(x); class x: public Button{private: void NotTouched(); void Hovered(); void Released(); void Pressed();};
+
 
 class Button
 {
@@ -19,14 +21,11 @@ public:
 protected:
 	virtual void NotTouched() = 0;
 	virtual void Hovered() = 0;
-	virtual void Released() = 0;
 	virtual void Pressed() = 0;
 private:
 	bool hovered(MouseManager& mouse);
 
 //Variables
-private:
-	bool m_Pressed;
 protected:
 	std::string m_text;
 	LTexture* m_Button;
@@ -35,5 +34,6 @@ protected:
 	int m_ButtonRightX;
 	int m_ButtonTopY;
 	int m_ButtonDownY;
+	SDL_Renderer* Renderer;
 };
 

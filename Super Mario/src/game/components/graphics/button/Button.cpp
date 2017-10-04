@@ -19,12 +19,12 @@ bool Button::init(SDL_Renderer* renderer, std::string path, std::string text, in
 		printf("Error in Loading texture for Button! \n");
 		return false;
 	}
+	Renderer = renderer;
 	m_Button->DestTexture(x, y, width, height);
 	m_text = text;
 	m_gfxText.SetText(renderer, m_text);
 	m_gfxText.DestText(x, y, width, height); // TODO
 	
-	m_Pressed = false;
 	m_ButtonLeftX = m_Button->GetDestRec().x;
 	m_ButtonRightX = m_Button->GetDestRec().x + m_Button->GetDestRec().w;
 	m_ButtonTopY = m_Button->GetDestRec().y;
@@ -34,14 +34,10 @@ bool Button::init(SDL_Renderer* renderer, std::string path, std::string text, in
 
 void Button::EventHandler(MouseManager& mouse)
 {
-	if (hovered(mouse) || m_Pressed) {
+	if (hovered(mouse)) {
 		Hovered();
 		if (mouse.LeftClick()) {
 			Pressed();
-			m_Pressed = true;
-		}
-		else if (mouse.LeftReleased()) {
-			Released();
 		}
 	}
 	else {

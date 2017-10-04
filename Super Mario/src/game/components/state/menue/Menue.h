@@ -2,7 +2,9 @@
 #include <game\components\state\CGameState.h>
 #include <game\components\state\GameEngine.h>
 #include <game\components\graphics\text\Text.h>
-#include <game\components\graphics\button\start\startButton.h>
+#include <game\components\graphics\button\Button.h>
+
+CButton(startButton);
 
 class Menue: public CGameState
 {
