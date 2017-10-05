@@ -16,8 +16,9 @@ Menue::~Menue()
 
 void Menue::Init(CGameEngine* game)
 {
-	m_text.Init("res/font/CONFN.TTF");
-	m_bttnstart.init(game->Renderer, "res/images/buttons/buttonyllw.png", "start", 100, 100, 200, 100);
+	int bttnstartWidth = 200;
+	int bttnstartHeight = 100;
+	m_bttnstart.init(game->Renderer, "res/images/buttons/buttonyllw.png", "start", (game->window->GetWidth() - bttnstartWidth) / 2, (game->window->GetHeight() - bttnstartHeight) / 2, bttnstartWidth, bttnstartHeight);
 	test.LoadTexture(game->Renderer, std::string("res/images/buttons/buttonyllw.png"));
 	m_X = 0;
 	test.DestTexture(m_X, 300, 20, 20);
@@ -62,22 +63,14 @@ Menue* Menue::Instance()
 //_________________________________________________________ Button start
 void startButton::NotTouched()
 {
-	std::string test = "fuck it";
-	m_gfxText.SetText(Renderer, test);
+	std::string test = "Start";
 	m_gfxText.SetColor(COLOR_BLACK);
+	m_gfxText.SetText(Renderer, test);
 }
 
 void startButton::Hovered()
 {
-	std::string test = "fuck it2";
-	m_gfxText.SetText(Renderer, test);
-	m_gfxText.SetColor(COLOR_BLUE);
-}
-
-void startButton::Released()
-{
-	printf("RELEASED YOLO \n"); 
-
+	m_gfxText.SetColor(COLOR_RED);
 }
 
 void startButton::Pressed()

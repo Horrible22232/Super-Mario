@@ -39,7 +39,7 @@ bool init()
 		printf("IMG_Init: %s\n", IMG_GetError());
 		return false;
 	}
-	if (!g_Window.CreateWindow("Super Mario", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 500, 500, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE)) {
+	if (!g_Window.CreateWindow("Super Mario", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1000, 500, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE)) {
 		return false;
 	}
 	if (TTF_Init() == -1) {

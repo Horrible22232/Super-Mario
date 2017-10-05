@@ -24,8 +24,6 @@ bool Text::Init(std::string path)
 		printf("TTF_OpenFont: %s\n", TTF_GetError());
 		return false;
 	}
-	//set standart color Black
-	SetColor(COLOR_BLACK);
 	return true;
 }
 
@@ -67,7 +65,7 @@ bool Text::RenderBoarders(SDL_Renderer * renderer, Uint8 red, Uint8 green, Uint8
 bool Text::SetText(SDL_Renderer* renderer, std::string& text)
 {
 	if (m_Font == NULL) {
-		printf("Init first");
+		Init("res/font/CONFN.TTF"); //Standard font
 	}
 	//check valid Renderer
 	if (renderer == NULL) {

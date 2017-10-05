@@ -24,7 +24,6 @@ public:
 	void Reset(CGameEngine* game) override;
 
 private:
-	Text m_text;
 	startButton m_bttnstart;
 	int m_X;
 	LTexture test;

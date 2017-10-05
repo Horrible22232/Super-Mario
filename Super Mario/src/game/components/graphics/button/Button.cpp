@@ -26,7 +26,7 @@ bool Button::init(SDL_Renderer* renderer, std::string path, std::string text, in
 	m_Button->DestTexture(x, y, width, height);
 	m_text = text;
 	m_gfxText.SetText(renderer, m_text);
-	m_gfxText.DestText(x, y, width, height); // TODO
+	m_gfxText.DestText(x + width / 10 , y + height/4, width - width / 5, height/2); // TODO
 	
 	m_ButtonLeftX = m_Button->GetDestRec().x;
 	m_ButtonRightX = m_Button->GetDestRec().x + m_Button->GetDestRec().w;
