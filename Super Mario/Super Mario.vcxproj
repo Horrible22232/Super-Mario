@@ -185,6 +185,9 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\game\components\entity\Entity.h" />
+    <ClInclude Include="src\game\components\observer\event\EventList.h" />
+    <ClInclude Include="src\game\components\observer\Observer.h" />
     <ClInclude Include="src\game\components\graphics\button\manager\ButtonManager.h" />
     <ClInclude Include="src\game\components\input\Input.h" />
     <ClInclude Include="src\game\components\input\mouse\MouseManager.h" />
@@ -205,6 +208,8 @@
     <ClInclude Include="src\game\components\graphics\text\Text.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\game\components\entity\Entity.cpp" />
+    <ClCompile Include="src\game\components\observer\Observer.cpp" />
     <ClCompile Include="src\game\components\graphics\button\manager\ButtonManager.cpp" />
     <ClCompile Include="src\game\components\input\Input.cpp" />
     <ClCompile Include="src\game\components\input\mouse\MouseManager.cpp" />

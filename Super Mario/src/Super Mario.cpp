@@ -12,6 +12,7 @@
 #include <game\components\graphics\text\Text.h>
 #include <game\components\input\Input.h>
 #include <utils\timer\Timer.h>
+#include <game\components\observer\Observer.h>
 
 
 //Pre Loaded functions
@@ -22,6 +23,9 @@ inline void input(SDL_Event& e, CGameEngine& Game);
 inline void update(CGameEngine& Game);
 inline void render(CGameEngine& Game);
 inline void reset(CGameEngine& Game);
+inline void msgSystems();
+inline void sound();
+
 
 //global Variables
 Window g_Window;
@@ -78,11 +82,14 @@ void run()
 				lag -= Max_Time_Per_Tick;
 			}
 			Clock.Reset(); //Update the game atleast at Max_Time_Per_Tick
+			//Update Systems
 			input(e, Game);
 			update(Game);
+			render(Game); //Render
+			sound();
+			// Update variables
 			lag -= Clock.GetTime();
 			oldLag = lag;
-			render(Game); //Render
 			fps++;	//Count fps
 			once = lag < Max_Time_Per_Tick ? true : false;
 		}
@@ -99,6 +106,16 @@ void run()
 void reset(CGameEngine& Game)
 {
 	Game.Reset();
+}
+
+inline void msgSystems()
+{
+	while (Observer::getNotificationList().size() > 0) {
+		for (int i = 0; i < Observer::getObserverList().size(); i++) {
+			Observer::getObserverList().at(i)->onNotification(Observer::getNotificationList().back()); // Notify every System with Events
+		}
+		Observer::getNotificationList().pop_back(); //remove msged event from the list
+	}
 }
 
 
@@ -134,6 +151,10 @@ inline void render(CGameEngine& Game)
 	SDL_RenderPresent(g_Window.GetRenderer());
 }
 
+inline void sound()
+{
+
+}
 
 
 
