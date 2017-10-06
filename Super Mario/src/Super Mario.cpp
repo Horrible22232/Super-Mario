@@ -107,7 +107,7 @@ void reset(CGameEngine& Game)
 inline void msgSystems()
 {
 	while (Observer::getNotificationList().size() > 0) {
-		for (int i = 0; i < Observer::getObserverList().size(); i++) {
+		for (unsigned int i = 0; i < Observer::getObserverList().size(); i++) {
 			Observer::getObserverList().at(i)->onNotification(Observer::getNotificationList().back()); // Notify every System with Events
 		}
 		Observer::getNotificationList().pop_back(); //remove msged event from the list

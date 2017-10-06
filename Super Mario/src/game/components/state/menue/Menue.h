@@ -5,15 +5,7 @@
 #include <game\components\graphics\button\Button.h>
 #include "..\..\observer\Observer.h"
 
-class StartButton : public Observer, public Button {
-
-private:
-	void NotTouched();
-	void Hovered();
-	void Pressed();
-	virtual void onNotification(Event& event) override;
-
-};
+class StartButton;
 
 class Menue: public CGameState, public Observer
 {
@@ -44,4 +36,14 @@ public:
 
 private:
 	static Menue m_Menue;
+};
+
+class StartButton : public Observer, public Button {
+
+private:
+	void NotTouched();
+	void Hovered();
+	void Pressed();
+	virtual void onNotification(Event& event) override;
+
 };
