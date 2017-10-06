@@ -13,13 +13,15 @@ Menue::Menue()
 
 Menue::~Menue()
 {
+	delete m_bttnstart;
 }
 
 void Menue::Init(CGameEngine* game)
 {
 	int bttnstartWidth = 200;
 	int bttnstartHeight = 100;
-	m_bttnstart.init(game->Renderer, "res/images/buttons/buttonyllw.png", "start", (game->window->GetWidth() - bttnstartWidth) / 2, (game->window->GetHeight() - bttnstartHeight) / 2, bttnstartWidth, bttnstartHeight);
+	m_bttnstart = new StartButton();
+	m_bttnstart->init(game->Renderer, "res/images/buttons/buttonyllw.png", "start", (game->window->GetWidth() - bttnstartWidth) / 2, (game->window->GetHeight() - bttnstartHeight) / 2, bttnstartWidth, bttnstartHeight);
 	test.LoadTexture(game->Renderer, std::string("res/images/buttons/buttonyllw.png"));
 	m_X = 0;
 	test.DestTexture(m_X, 300, 20, 20);

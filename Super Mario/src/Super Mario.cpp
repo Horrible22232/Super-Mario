@@ -90,7 +90,7 @@ void run()
 			fps++;	//Count fps
 		}
 		render(Game);
-		//fps++;
+		fps++;
 		reset(Game);
 		
 	}

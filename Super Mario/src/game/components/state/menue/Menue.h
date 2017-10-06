@@ -28,7 +28,7 @@ private:
 	virtual void onNotification(Event& event) override;
 
 private:
-	StartButton m_bttnstart;
+	StartButton* m_bttnstart;
 	int m_X;
 	LTexture test;
 public: 
@@ -38,7 +38,7 @@ private:
 	static Menue m_Menue;
 };
 
-class StartButton : public Observer, public Button {
+class StartButton : private Observer, public Button {
 
 private:
 	void NotTouched();
