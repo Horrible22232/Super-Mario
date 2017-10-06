@@ -66,7 +66,6 @@ void run()
 	double fps = 0;
 	double lag;
 	double oldLag = 0;
-	bool once = true;
 	Clock.Start();
 	FPSClock.Start();
 	while (g_Window.Running()) { // DONT LOOK AT THAT MESS
@@ -77,24 +76,20 @@ void run()
 		}
 		lag = Clock.GetTime() + oldLag;
 		while (lag >= Max_Time_Per_Tick) { //Synchronize Update_Tick
-			if (once) { // Remove Max_Time_Per_Tick once
-				once = false;
 				lag -= Max_Time_Per_Tick;
-			}
-			Clock.Reset(); //Update the game atleast at Max_Time_Per_Tick
 			//Update Systems
 			input(e, Game);
+			Clock.Reset(); //Update the game atleast at Max_Time_Per_Tick
 			update(Game);
+			lag -= Clock.GetTime();
 			render(Game); //Render
 			sound();
 			// Update variables
-			lag -= Clock.GetTime();
 			oldLag = lag;
 			fps++;	//Count fps
-			once = lag < Max_Time_Per_Tick ? true : false;
 		}
 		render(Game);
-		fps++;
+		//fps++;
 		reset(Game);
 		
 	}

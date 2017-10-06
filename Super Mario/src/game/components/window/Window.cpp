@@ -33,7 +33,7 @@ bool Window::CreateWindow(std::string title, int x, int y, int width, int height
 	}
 	m_WindowID = SDL_GetWindowID(m_Window);
 	//Create Renderer
-	m_Renderer = SDL_CreateRenderer(m_Window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_TARGETTEXTURE); //Vsync until framerate done! 
+	m_Renderer = SDL_CreateRenderer(m_Window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE); //Vsync until framerate done! 
 	if (m_Renderer == NULL) {
 		printf("Renderer Creation ERROR: %s", SDL_GetError());
 		return false;

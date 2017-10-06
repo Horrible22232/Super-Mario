@@ -11,7 +11,7 @@ public:
 	void addObserver(Observer* observer);
 	void removeObserver(Observer* observer);
 	static void Notify(Event& event);
-	virtual void onNotification(Event& event);
+	virtual void onNotification(Event& event) = 0;
 	static std::vector<Event>& getNotificationList();
 	static std::vector<Observer*>& getObserverList();
 private:

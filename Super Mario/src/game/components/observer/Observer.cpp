@@ -19,7 +19,7 @@ void Observer::addObserver(Observer* observer)
 
 void Observer::removeObserver(Observer* observer)
 {
-	for (int i = 0; i < ObserverList.size(); i++) {
+	for (unsigned int i = 0; i < ObserverList.size(); i++) {
 		if (observer == ObserverList.at(i)) {
 			ObserverList.erase(ObserverList.begin() + i);
 		}
@@ -31,9 +31,7 @@ void Observer::Notify(Event& event)
 	NotificationList.push_back(event);
 }
 
-void Observer::onNotification(Event& event)
-{
-}
+
 
 std::vector<Event>& Observer::getNotificationList()
 {
