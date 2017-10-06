@@ -76,6 +76,7 @@ void run()
 		}
 		lag = Clock.GetTime() + oldLag;
 		while (lag >= Max_Time_Per_Tick) { //Synchronize Update_Tick
+			msgSystems();
 				lag -= Max_Time_Per_Tick;
 			//Update Systems
 			input(e, Game);

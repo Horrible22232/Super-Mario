@@ -26,7 +26,7 @@ void Observer::removeObserver(Observer* observer)
 	}
 }
 
-void Observer::Notify(Event& event)
+void Observer::Notify(Event event)
 {
 	NotificationList.push_back(event);
 }

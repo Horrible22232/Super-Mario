@@ -5,7 +5,12 @@
 #include <game\components\graphics\texture\LTexture.h>
 #include <game\components\graphics\text\Text.h>
 
+
 #define CButton(x); class x: public Button{private: void NotTouched(); void Hovered(); void Pressed();};
+
+
+
+
 
 
 class Button

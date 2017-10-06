@@ -3,10 +3,19 @@
 #include <game\components\state\GameEngine.h>
 #include <game\components\graphics\text\Text.h>
 #include <game\components\graphics\button\Button.h>
+#include "..\..\observer\Observer.h"
 
-CButton(startButton);
+class StartButton : public Observer, public Button {
 
-class Menue: public CGameState
+private:
+	void NotTouched();
+	void Hovered();
+	void Pressed();
+	virtual void onNotification(Event& event) override;
+
+};
+
+class Menue: public CGameState, public Observer
 {
 protected:
 	Menue();
@@ -24,7 +33,10 @@ public:
 	void Reset(CGameEngine* game) override;
 
 private:
-	startButton m_bttnstart;
+	virtual void onNotification(Event& event) override;
+
+private:
+	StartButton m_bttnstart;
 	int m_X;
 	LTexture test;
 public: 
@@ -33,4 +45,3 @@ public:
 private:
 	static Menue m_Menue;
 };
-

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Menue.h"
+#include "..\..\observer\event\EventList.h"
 
 
 Menue Menue::m_Menue;
@@ -22,6 +23,7 @@ void Menue::Init(CGameEngine* game)
 	test.LoadTexture(game->Renderer, std::string("res/images/buttons/buttonyllw.png"));
 	m_X = 0;
 	test.DestTexture(m_X, 300, 20, 20);
+	addObserver(this);
 }
 
 void Menue::Cleanup()
@@ -55,25 +57,38 @@ void Menue::Reset(CGameEngine * game)
 {
 }
 
+void Menue::onNotification(Event& event)
+{
+	switch (event) {
+	case EVENT_Button_Clicked:
+		printf("YES");
+	}
+}
+
 Menue* Menue::Instance()
 {
 	return &m_Menue;
 }
 
 //_________________________________________________________ Button start
-void startButton::NotTouched()
+void StartButton::NotTouched()
 {
 	std::string test = "Start";
 	m_gfxText.SetColor(COLOR_BLACK);
 	m_gfxText.SetText(Renderer, test);
 }
 
-void startButton::Hovered()
+void StartButton::Hovered()
 {
 	m_gfxText.SetColor(COLOR_RED);
 }
 
-void startButton::Pressed()
+void StartButton::Pressed()
 {
-	printf("PRESSED YOLO \n");
+	Notify(EVENT_Button_Clicked);
+}
+
+void StartButton::onNotification(Event& event)
+{
+	throw std::logic_error("The method or operation is not implemented.");
 }
