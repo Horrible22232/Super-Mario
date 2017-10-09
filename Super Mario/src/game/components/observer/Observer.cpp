@@ -10,6 +10,7 @@ Observer::Observer()
 
 Observer::~Observer()
 {
+	removeObserver(this);
 }
 
 void Observer::addObserver(Observer* observer)
