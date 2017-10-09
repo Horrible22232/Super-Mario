@@ -63,7 +63,7 @@ void Menue::onNotification(Event& event)
 {
 	switch (event) {
 	case EVENT_Button_Clicked:
-		printf("YES");
+		break;
 	}
 }
 

@@ -13,6 +13,7 @@ Text::~Text()
 {
 	if (m_Texture != NULL) {
 		SDL_DestroyTexture(m_Texture);
+		m_Texture == NULL;
 	}
 }
 

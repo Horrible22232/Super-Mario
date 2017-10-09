@@ -185,6 +185,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\game\components\sound\datastructure\AVL_Tree.h" />
+    <ClInclude Include="src\game\components\sound\SoundManager.h" />
     <ClInclude Include="src\game\components\entity\Entity.h" />
     <ClInclude Include="src\game\components\observer\event\EventList.h" />
     <ClInclude Include="src\game\components\observer\Observer.h" />
@@ -208,6 +210,8 @@
     <ClInclude Include="src\game\components\graphics\text\Text.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\game\components\sound\datastructure\AVL_Tree.cpp" />
+    <ClCompile Include="src\game\components\sound\SoundManager.cpp" />
     <ClCompile Include="src\game\components\entity\Entity.cpp" />
     <ClCompile Include="src\game\components\observer\Observer.cpp" />
     <ClCompile Include="src\game\components\graphics\button\manager\ButtonManager.cpp" />

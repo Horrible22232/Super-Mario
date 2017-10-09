@@ -30,7 +30,7 @@ void MouseManager::EventHandler(SDL_Event& e)
 			}
 			//Check left state (hold release)
 			switch (e.type) {
-			case SDL_MOUSEBUTTONDOWN:
+			case SDL_MOUSEBUTTONDOWN: 
 				m_leftButtonHold = true;
 				break;
 			case SDL_MOUSEBUTTONUP:

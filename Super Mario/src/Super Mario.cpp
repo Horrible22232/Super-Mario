@@ -13,6 +13,8 @@
 #include <game\components\input\Input.h>
 #include <utils\timer\Timer.h>
 #include <game\components\observer\Observer.h>
+#include "SDL_mixer.h"
+#include "game\components\sound\SoundManager.h"
 
 
 //Pre Loaded functions
@@ -24,7 +26,6 @@ inline void update(CGameEngine& Game);
 inline void render(CGameEngine& Game);
 inline void reset(CGameEngine& Game);
 inline void msgSystems();
-inline void sound();
 
 
 //global Variables
@@ -50,6 +51,22 @@ bool init()
 		printf("TTF_Init: %s\n", TTF_GetError());
 		return false;
 	}
+
+	int flags = MIX_INIT_OGG | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_FLAC;
+	int initted = Mix_Init(flags);
+	if (initted&flags != flags) {
+		printf("Mix_Init: Failed to init required ogg and mod support!\n");
+		printf("Mix_Init: %s\n", Mix_GetError());
+		return false;
+	}
+
+	// open 44.1KHz, signed 16bit, system byte order,
+	//      stereo audio, using 1024 byte chunks
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) == -1) {
+		printf("Mix_OpenAudio: %s\n", Mix_GetError());
+		return false;
+	}
+	
 
 	return true;
 }
@@ -80,11 +97,10 @@ void run()
 				lag -= Max_Time_Per_Tick;
 			//Update Systems
 			input(e, Game);
-			Clock.Reset(); //Update the game atleast at Max_Time_Per_Tick
+			Clock.Reset(); //Update the game at least at Max_Time_Per_Tick
 			update(Game);
 			lag -= Clock.GetTime();
 			render(Game); //Render
-			sound();
 			// Update variables
 			oldLag = lag;
 			fps++;	//Count fps
@@ -119,6 +135,10 @@ void close(CGameEngine& Game)
 {
 	Game.Cleanup();
 	Text::free();
+	Mix_CloseAudio();
+	while (Mix_Init(0)){
+		Mix_Quit();
+	}
 	TTF_Quit();
 	SDL_Quit();
 }
@@ -145,11 +165,6 @@ inline void render(CGameEngine& Game)
 	Game.Render();
 
 	SDL_RenderPresent(g_Window.GetRenderer());
-}
-
-inline void sound()
-{
-
 }
 
 

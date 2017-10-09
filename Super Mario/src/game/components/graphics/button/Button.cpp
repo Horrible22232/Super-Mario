@@ -39,7 +39,7 @@ void Button::EventHandler(MouseManager& mouse)
 {
 	if (hovered(mouse)) {
 		Hovered();
-		if (mouse.LeftClick()) {
+		if (mouse.LeftButtonHold()) {
 			Pressed();
 		}
 	}

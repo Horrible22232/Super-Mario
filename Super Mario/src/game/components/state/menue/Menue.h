@@ -25,7 +25,7 @@ public:
 	void Reset(CGameEngine* game) override;
 
 private:
-	virtual void onNotification(Event& event) override;
+	void onNotification(Event& event) override;
 
 private:
 	StartButton* m_bttnstart;
@@ -44,6 +44,6 @@ private:
 	void NotTouched();
 	void Hovered();
 	void Pressed();
-	virtual void onNotification(Event& event) override;
+	void onNotification(Event& event) override;
 
 };

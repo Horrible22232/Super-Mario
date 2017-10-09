@@ -21,6 +21,7 @@ void CGameEngine::Init(Window& window)
 	Camera::Instance()->init(new int(window.GetWidth()), new int(window.GetHeight()));
 	Input = new CInput();
 	Input->Init();
+	m_SoundManager.Init();
 	//SDL_CaptureMouse(SDL_TRUE);
 
 }
@@ -84,6 +85,7 @@ void CGameEngine::HandleEvents(SDL_Event& e)
 void CGameEngine::Update()
 {
 	// let the state update the game
+	m_SoundManager.Update();
 	states.back()->Update(this);
 }
 

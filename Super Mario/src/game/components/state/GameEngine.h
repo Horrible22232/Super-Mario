@@ -4,6 +4,7 @@
 #include <game\components\state\CGameState.h>
 #include <game\components\input\mouse\MouseManager.h>
 #include <game\components\input\Input.h>
+#include "..\sound\SoundManager.h"
 class CGameState;
 
 class CGameEngine
@@ -37,6 +38,7 @@ public:
 private:
 	// the stack of states
 	std::vector<CGameState*> states;
+	SoundManager m_SoundManager;
 
 	bool m_running;
 };
