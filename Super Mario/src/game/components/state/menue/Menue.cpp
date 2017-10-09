@@ -26,6 +26,7 @@ void Menue::Init(CGameEngine* game)
 	m_X = 0;
 	test.DestTexture(m_X, 300, 20, 20);
 	addObserver(this);
+	Notify(EVENT_STATE_MENUE);
 }
 
 void Menue::Cleanup()
